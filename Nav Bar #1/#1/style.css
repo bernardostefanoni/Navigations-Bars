@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(images/marmol.jpg);
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 50vh;
+}
+
+.container_navBar {
+  background-image: url(images/voka.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 70%;
+  display: grid;
+  grid-template-columns: auto 290px 50px;
+  grid-template-rows: 70px;
+  grid-template-areas: "logo      links     btnMenu";
+  align-items: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.container_logo {
+  grid-area: logo;
+  font-size: 1em;
+  padding-left: 7vh;
+}
+
+.container_logo > h1 {
+  font-family: 'Fredoka One', cursive;
+  color: rgba(238,  238,  238,  0.9);
+  text-shadow: 4px 4px 15px #000, 6px 6px 20px #fff;
+}
+
+.container_links {
+  grid-area: links;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5em;
+  font-family: 'Fredoka One', cursive;
+}
+
+.container_link1,
+.container_link2 {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 4px 4px 15px #000, 6px 6px 20px #fff;
+}
+
+.container_btnMenu {
+  grid-area: btnMenu;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.container_line1,
+.container_line2,
+.container_line3 {
+  width: 30px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 4px 4px 15px #000, 6px 6px 20px #fff;
+}
+
+@media screen and (max-width: 992px) {
+  .container_navBar {
+    grid-template-columns: auto 50px;
+    grid-template-rows: 70px;
+    grid-template-areas: "logo      btnMenu";
+  }
+
+  .container_links {
+    display: none;
+  }
+
+  .container_btnMenu {
+    visibility: visible;
+  }
+
+  .container_navBar.open {
+    grid-template-columns: auto 50px;
+    grid-template-rows: 70px auto;
+    grid-template-areas: "logo      btnMenu"
+                         "links     links";
+
+    max-height: 70px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+        -webkit-transition: max-height 0.4s ease-out;
+        -moz-transition: max-height 0.4s ease-out;
+        -ms-transition: max-height 0.4s ease-out;
+        -o-transition: max-height 0.4s ease-out;
+}
+
+  .container_links.expandLinks {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
